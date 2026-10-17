@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Golden Jubilee | Baptist Grammar School, Ikire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Figtree:wght@400;500;600&display=swap">
+<style>
+html{color-scheme:light dark}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: a navy inscription-plate hero (school name, motto, big 50), the invitation with a Google Form button, then the tribute wall and an organiser panel. */
+:root {
+  --bg: #F4F5F9;
+  --surface: #FFFFFF;
+  --ink: #11203F;
+  --muted: #55607A;
+  --line: #D8DCE7;
+  --gold: #8F6409;
+  --gold-fill: #C99A2E;
+  --on-gold: #1A1204;
+  --danger: #A32B2B;
+  --hero-bg: #0F1E3D;
+  --hero-ink: #F2EEE0;
+  --hero-gold: #E3B04B;
+  --font-display: "Cinzel", "Trajan Pro", Georgia, serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0A1226; --surface: #121D38; --ink: #EAEEF7; --muted: #9AA6C2;
+    --line: #263356; --gold: #E3B04B; --gold-fill: #E3B04B; --on-gold: #1A1204; --danger: #FF8A8A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0A1226; --surface: #121D38; --ink: #EAEEF7; --muted: #9AA6C2;
+  --line: #263356; --gold: #E3B04B; --gold-fill: #E3B04B; --on-gold: #1A1204; --danger: #FF8A8A;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.55; }
+.wrap { width: 100%; max-width: 1040px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* Hero */
+.hero { background: var(--hero-bg); color: var(--hero-ink); border-bottom: 3px solid var(--hero-gold); }
+.hero .wrap { padding-block: 40px 36px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 40px; align-items: center; }
+.eyebrow { font-family: var(--font-display); font-weight: 500; letter-spacing: .16em; font-size: .78rem; text-transform: uppercase; color: var(--hero-gold); margin: 0 0 14px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.7rem, 5.2vw, 3.1rem); line-height: 1.12; letter-spacing: .03em; margin: 0 0 18px; text-transform: uppercase; text-wrap: balance; }
+.motto { font-family: var(--font-display); letter-spacing: .2em; font-size: .85rem; margin: 0 0 6px; color: var(--hero-gold); text-transform: uppercase; }
+.est { margin: 0; color: #C5CCDD; font-size: .95rem; }
+.fifty { font-family: var(--font-display); font-weight: 700; font-size: clamp(5rem, 16vw, 10rem); line-height: .9; color: var(--hero-gold); text-align: center; border: 2px solid var(--hero-gold); padding: 18px 26px 14px; letter-spacing: .02em; }
+.fifty small { display: block; font-size: clamp(.6rem, 1.6vw, .8rem); letter-spacing: .3em; margin-top: 10px; color: var(--hero-ink); font-weight: 500; }
+
+/* Invitation + dates */
+.invite { padding-block: 32px 8px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.invite p { margin: 0; font-size: 1.08rem; max-width: 62ch; }
+.dates { display: grid; gap: 10px; }
+.date { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 16px; align-items: center; background: var(--surface); border: 1px solid var(--line); padding: 12px 16px; }
+.date b { font-family: var(--font-display); font-size: 1.7rem; line-height: 1; color: var(--gold); grid-row: span 2; }
+.date span { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.date strong { font-weight: 600; }
+.cta { font-family: var(--font-display); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; text-align: center; margin: 28px 0 0; padding: 16px; border-block: 1px solid var(--gold-fill); color: var(--gold); text-wrap: balance; font-size: clamp(.95rem, 2.6vw, 1.25rem); }
+
+/* Send panel */
+section { padding-block: 36px 8px; }
+h2 { font-family: var(--font-display); font-size: 1.3rem; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 6px; }
+.sub { color: var(--muted); margin: 0 0 20px; max-width: 60ch; }
+.send { background: var(--surface); border: 1px solid var(--line); padding: 26px 22px; display: grid; gap: 14px; justify-items: start; }
+.send .ideas { margin: 0; color: var(--muted); max-width: 62ch; }
+a.btn, button { font: inherit; cursor: pointer; border-radius: 3px; padding: 13px 24px; font-weight: 600; border: 1px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; display: inline-block; }
+a.btn.primary, button.primary { background: var(--gold-fill); border-color: var(--gold-fill); color: var(--on-gold); letter-spacing: .02em; }
+a.btn.big { font-size: 1.1rem; padding: 15px 30px; }
+a.btn.primary:hover, button.primary:hover { filter: brightness(1.06); }
+a.btn:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--gold-fill); outline-offset: 2px; }
+button.link { border: 0; background: none; padding: 8px 4px; color: var(--muted); text-decoration: underline; font-weight: 500; }
+button.danger { color: var(--danger); }
+button:disabled { opacity: .55; cursor: default; }
+.linkrow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; max-width: 100%; }
+.linkrow code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .88rem; background: var(--bg); border: 1px solid var(--line); padding: 6px 10px; overflow-wrap: anywhere; min-width: 0; }
+.mini { font-size: .88rem; color: var(--muted); margin: 0; }
+
+/* Wall */
+.wall-head { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: baseline; justify-content: space-between; margin-bottom: 16px; }
+.tally { font-family: var(--font-display); color: var(--gold); letter-spacing: .08em; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--gold-fill); padding: 16px 18px 14px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.card .kind { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin: 0; }
+.card .msg { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.card .who { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 8px; align-items: flex-end; }
+.card .who strong { display: block; }
+.card .who span { color: var(--muted); font-size: .88rem; }
+.empty { border: 1px dashed var(--line); padding: 28px 20px; text-align: center; color: var(--muted); background: var(--surface); grid-column: 1 / -1; }
+.empty b { display: block; font-family: var(--font-display); color: var(--ink); letter-spacing: .06em; margin-bottom: 4px; }
+.more { display: flex; justify-content: center; margin-top: 18px; }
+
+/* Organiser */
+.admin { margin-top: 28px; border: 1px solid var(--gold-fill); background: var(--surface); padding: 18px; display: grid; gap: 16px; }
+.admin h3 { font-family: var(--font-display); letter-spacing: .08em; text-transform: uppercase; font-size: 1rem; margin: 0; }
+.admin p { margin: 0; font-size: .92rem; color: var(--muted); max-width: 70ch; }
+.admin .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.admin textarea, .admin input, .admin select { font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); padding: 10px 12px; width: 100%; min-width: 0; border-radius: 3px; }
+.admin textarea { min-height: 120px; resize: vertical; }
+.admin details { border-top: 1px solid var(--line); padding-top: 14px; }
+.admin summary { cursor: pointer; font-weight: 600; }
+.addform { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+.addform .full { grid-column: 1 / -1; }
+.addform label { font-weight: 600; font-size: .86rem; display: grid; gap: 4px; min-width: 0; }
+.status { margin: 0; font-size: .92rem; min-height: 1.3em; }
+.status.ok { color: var(--gold); font-weight: 600; }
+.status.err { color: var(--danger); }
+footer { padding-block: 40px 48px; text-align: center; color: var(--muted); font-size: .9rem; }
+footer .m { font-family: var(--font-display); letter-spacing: .2em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 4px; }
+
+@media (max-width: 720px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); padding-block: 28px; }
+  .fifty { justify-self: start; padding: 12px 20px 10px; }
+  .invite { grid-template-columns: minmax(0, 1fr); }
+  .addform { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) { a.btn, button { transition: filter .15s ease; } }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Golden Jubilee &mdash; 50 Years of Excellence</p>
+      <h1>Baptist Grammar School, Ikire</h1>
+      <p class="motto">Motto: For God and My Country</p>
+      <p class="est">Established by First Baptist Church, Ikire, in 1976.</p>
+    </div>
+    <div class="fifty" aria-label="Fifty years">50<small>1976 &ndash; 2026</small></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="invite">
+    <p>As we celebrate 50 years of impact, we invite all alumni, staff, and well-wishers to share their tributes, congratulatory messages, and memorable experiences.</p>
+    <div class="dates">
+      <div class="date"><b>24</b><span>Saturday, October 2026</span><strong>Grand Finale</strong></div>
+      <div class="date"><b>25</b><span>Sunday, October 2026</span><strong>Thanksgiving Service</strong></div>
+    </div>
+  </div>
+  <p class="cta">Send your tribute and be part of our golden story!</p>
+
+  <section aria-labelledby="send-title">
+    <h2 id="send-title">Share your tribute</h2>
+    <p class="sub">Write a few lines or a full story: a tribute, a congratulatory message, or a memory from your school days.</p>
+    <div class="send">
+      <a class="btn primary big" href="https://forms.gle/P72b1VFkefsbakpL7" target="_blank" rel="noopener noreferrer">Send your tribute</a>
+      <p class="ideas">The button opens our tribute form on Google Forms. Your answers go straight to the organising committee and will be read out and shown during the Golden Jubilee celebrations.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span class="m">For God and My Country</span>
+  Baptist Grammar School, Ikire &middot; Golden Jubilee 1976&ndash;2026
+</footer>
+</body>
+</html>
